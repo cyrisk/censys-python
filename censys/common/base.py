@@ -215,6 +215,7 @@ class CensysAPIBase:
             url = f"{self._api_url}/{endpoint}"
 
         self.logger.debug(f"Making request to {url} with parameters {args}")
+        print(f"Making request to {url} with parameters {args}")
         request_kwargs = {
             "params": args or {},
             "timeout": self.timeout,
