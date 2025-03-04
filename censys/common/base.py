@@ -214,8 +214,6 @@ class CensysAPIBase:
         else:
             url = f"{self._api_url}/{endpoint}"
 
-        self.logger.debug(f"Making request to {url} with parameters {args}")
-        print(f"Making request to {url} with parameters {args}")
         request_kwargs = {
             "params": args or {},
             "timeout": self.timeout,
@@ -225,6 +223,8 @@ class CensysAPIBase:
         if data:
             request_kwargs["json"] = data
 
+        self.logger.debug("CENSY LIB TEST DEBUG LOG")
+        print(f"CENSYS LIB: Making request to {url} with parameters {request_kwargs}")
         res = self._call_method(method, url, request_kwargs)
 
         if res.ok:
